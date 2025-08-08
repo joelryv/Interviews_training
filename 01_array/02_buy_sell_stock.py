@@ -8,4 +8,15 @@ Find and return the maximum profit you can achieve.
 
 class Solution(object):
     def maxProfit(self, prices):
-        pass
+        max_profit = 0
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i - 1]:
+                max_profit += prices[i] - prices[i - 1]
+        return max_profit
+    
+# Example usage:
+if __name__ == "__main__":
+    solution = Solution()
+    prices = [7,1,5,3,6,4]
+    profit = solution.maxProfit(prices)
+    print("Maximum profit:", profit)
