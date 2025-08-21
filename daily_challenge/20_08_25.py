@@ -18,4 +18,18 @@ class Solution:
                 stack.append([i, cur, h])
                 res += cur
         return res
+    
+# Unit tests
+import unittest
+class TestSolution(unittest.TestCase):
+    def test_numSubmat(self):
+        solution = Solution()
+        self.assertEqual(solution.numSubmat([[1,0,1],[1,1,0],[1,1,0]]), 13)
+        self.assertEqual(solution.numSubmat([[0,1,1,0],[0,1,1,1],[1,1,1,0]]), 24)
+        self.assertEqual(solution.numSubmat([[1,1,1,1,1]]), 15)
+        self.assertEqual(solution.numSubmat([[1],[1],[1]]), 6)
+        self.assertEqual(solution.numSubmat([[0]]), 0)
+        self.assertEqual(solution.numSubmat([[1]]), 1)
 
+if __name__ == "__main__":
+    unittest.main()
