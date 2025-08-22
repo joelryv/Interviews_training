@@ -18,3 +18,19 @@ class Solution:
                     if j > right:
                         right = j
         return((bot-top+1)*(right-left+1))
+
+# Unit tests
+import unittest
+class TestSolution(unittest.TestCase):
+    def test_minimumArea(self):
+        solution = Solution()
+        self.assertEqual(solution.minimumArea([[0,0,0,0,0],[0,1,1,0,0],[0,1,1,0,0],[0,0,0,0,0]]), 4)
+        self.assertEqual(solution.minimumArea([[1]]), 1)
+        self.assertEqual(solution.minimumArea([[0]]), 0)
+        self.assertEqual(solution.minimumArea([[0,0,0],[0,1,0],[0,0,0]]), 1)
+        self.assertEqual(solution.minimumArea([[1,1,1],[1,1,1],[1,1,1]]), 9)
+
+        self.assertEqual(solution.minimumArea([[0,1,0],[1,1,1],[0,1,0]]), 9)
+
+if __name__ == "__main__":
+    unittest.main()
