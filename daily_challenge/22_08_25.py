@@ -73,3 +73,26 @@ class Solution:
     def minimumSum(self, grid: List[List[int]]) -> int:
         rgrid = self.rotate(grid)
         return min(self.solve(grid), self.solve(rgrid))
+    
+# Unit tests
+import unittest
+class TestSolution(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_minimumSum(self):
+        self.assertEqual(
+            self.solution.minimumSum([[1, 0, 0], [0, 1, 0], [0, 0, 1]]), 3
+        )
+        self.assertEqual(
+            self.solution.minimumSum([[1, 1, 1], [1, 1, 1], [1, 1, 1]]), 9
+        )
+        self.assertEqual(
+            self.solution.minimumSum([[1, 0], [0, 1]]), 4
+        )
+        self.assertEqual(
+            self.solution.minimumSum([[1, 1], [1, 1]]), 4
+        )
+
+if __name__ == "__main__":
+    unittest.main()
