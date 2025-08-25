@@ -21,3 +21,19 @@ class Solution:
                 result += prev[k]
         return result
 
+    
+# Unittests
+import unittest
+class TestSolution(unittest.TestCase):
+    def test_findDiagonalOrder(self):
+        solution = Solution()
+        self.assertEqual(solution.findDiagonalOrder([[1,2,3],[4,5,6],[7,8,9]]), [1,2,4,7,5,3,6,8,9])
+        self.assertEqual(solution.findDiagonalOrder([[1,2],[3,4]]), [1,2,3,4])
+        self.assertEqual(solution.findDiagonalOrder([[1]]), [1])
+        self.assertEqual(solution.findDiagonalOrder([]), [])
+        self.assertEqual(solution.findDiagonalOrder([[1],[2],[3]]), [1,2,3])
+        self.assertEqual(solution.findDiagonalOrder([[1,2,3]]), [1,2,3])
+        self.assertEqual(solution.findDiagonalOrder([[1,2],[3,4],[5,6]]), [1,2,3,5,4,6])
+
+if __name__ == "__main__":
+    unittest.main()
