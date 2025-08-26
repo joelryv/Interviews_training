@@ -17,3 +17,16 @@ class Solution:
                     max_p = pair
         return max_p[0]*max_p[1]
     
+# Unittests
+import unittest
+class TestSolution(unittest.TestCase):
+    def test_areaOfMaxDiagonal(self):
+        solution = Solution()
+        self.assertEqual(solution.areaOfMaxDiagonal([[1,2],[3,4],[2,3]]), 12)
+        self.assertEqual(solution.areaOfMaxDiagonal([[1,1],[2,2],[3,3]]), 9)
+        self.assertEqual(solution.areaOfMaxDiagonal([[1,2],[2,1],[1,1]]), 2)
+        self.assertEqual(solution.areaOfMaxDiagonal([[5,5],[3,7],[6,4]]), 21)
+        self.assertEqual(solution.areaOfMaxDiagonal([[1,10],[10,1],[5,5]]), 10)
+
+if __name__ == "__main__":
+    unittest.main()
