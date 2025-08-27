@@ -3,6 +3,7 @@ https://leetcode.com/problems/length-of-longest-v-shaped-diagonal-segment/submis
 """
 
 from typing import List
+from functools import cache
 class Solution:
     def lenOfVDiagonal(self, grid: List[List[int]]) -> int:
         DIRS = [(1, 1), (1, -1), (-1, -1), (-1, 1)]
@@ -32,3 +33,41 @@ class Solution:
                     for direction in range(4):
                         res = max(res, dfs(i, j, direction, True, 2) + 1)
         return res
+
+# Unittests
+import unittest
+class TestSolution(unittest.TestCase):
+    def test_lenOfVDiagonal1(self):
+        grid = [[2,2,1,2,2],
+                [2,0,2,2,0],
+                [2,0,1,1,0],
+                [1,0,2,2,2],
+                [2,0,0,2,2]]
+        expected = 5
+        self.assertEqual(Solution().lenOfVDiagonal(grid), expected)
+
+    def test_lenOfVDiagonal2(self):
+        grid = [[2,2,2,2,2],
+                [2,0,2,2,0],
+                [2,0,1,1,0],
+                [1,0,2,2,2],
+                [2,0,0,2,2]]
+        expected = 4
+        self.assertEqual(Solution().lenOfVDiagonal(grid), expected)
+
+    def test_lenOfVDiagonal3(self):
+        grid = [[1]]
+        expected = 1
+        self.assertEqual(Solution().lenOfVDiagonal(grid), expected)
+
+    def test_lenOfVDiagonal4(self):
+        grid = [[1,2,2,2,2],
+                [2,2,2,2,0],
+                [2,0,0,0,0],
+                [0,0,2,2,2],
+                [2,0,0,2,0]]
+        expected = 5
+        self.assertEqual(Solution().lenOfVDiagonal(grid), expected)
+
+if __name__ == "__main__":
+    unittest.main()
