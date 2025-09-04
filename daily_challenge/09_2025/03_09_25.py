@@ -12,3 +12,16 @@ class Solution:
         else:
             return 0
         
+# Unit tests
+import unittest
+class TestFindClosestPerson(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_findClosest(self):
+        self.assertEqual(self.solution.findClosest(1, 2, 3), 2)
+        self.assertEqual(self.solution.findClosest(2, 1, 3), 1)
+        self.assertEqual(self.solution.findClosest(1, 2, 2), 2)
+
+if __name__ == "__main__":
+    unittest.main()
