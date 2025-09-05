@@ -12,3 +12,19 @@ class Solution:
             if k >= x.bit_count():
                 return k
             k += 1
+
+# Unit tests
+import unittest
+
+class TestMakeTheIntegerZero(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_makeTheIntegerZero(self):
+        self.assertEqual(self.solution.makeTheIntegerZero(3, 2), 1)
+        self.assertEqual(self.solution.makeTheIntegerZero(5, 3), 1)
+        self.assertEqual(self.solution.makeTheIntegerZero(6, 1), 2)
+        self.assertEqual(self.solution.makeTheIntegerZero(10, 3), 2)
+
+if __name__ == "__main__":
+    unittest.main()
