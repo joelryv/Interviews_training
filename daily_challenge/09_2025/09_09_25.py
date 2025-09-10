@@ -1,6 +1,7 @@
 """
 https://leetcode.com/problems/minimum-number-of-people-to-teach/description/?envType=daily-question&envId=2025-09-10
 """
+from typing import List
 
 class Solution:
     def minimumTeachings(self, n: int, languages: List[List[int]], friendships: List[List[int]]) -> int:
@@ -26,3 +27,19 @@ class Solution:
                 m_count = value
 
         return len(no_comm) - m_count
+    
+# Unit tests
+import unittest
+
+class TestMinimumTeachings(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_minimumTeachings(self):
+        self.assertEqual(self.solution.minimumTeachings(2, [[1],[2],[1,2]], [[1,2],[1,3],[2,3]]), 1)
+        self.assertEqual(self.solution.minimumTeachings(3, [[2],[1,3],[1,2],[3]], [[1,4],[1,2],[3,4],[2,3]]), 2)
+        self.assertEqual(self.solution.minimumTeachings(3, [[1,2,3],[1,2,3],[1,2,3]], [[1,2],[2,3],[3,1]]), 0)
+        self.assertEqual(self.solution.minimumTeachings(3, [[1],[2],[3]], [[1,2],[2,3],[3,1]]), 2)
+
+if __name__ == "__main__":
+    unittest.main()
