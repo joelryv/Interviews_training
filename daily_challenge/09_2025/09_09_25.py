@@ -21,3 +21,17 @@ class Solution:
         
         return (total%(10**9+7))
     
+# Unit tests
+import unittest
+
+class TestPeopleAwareOfSecret(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_peopleAwareOfSecret(self):
+        self.assertEqual(self.solution.peopleAwareOfSecret(6, 2, 4), 5)
+        self.assertEqual(self.solution.peopleAwareOfSecret(4, 1, 3), 6)
+        self.assertEqual(self.solution.peopleAwareOfSecret(10, 1, 5), 416)
+
+if __name__ == "__main__":
+    unittest.main()
