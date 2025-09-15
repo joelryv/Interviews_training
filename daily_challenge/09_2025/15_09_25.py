@@ -16,3 +16,20 @@ class Solution:
                     break
         return valid
     
+# Unit tests
+import unittest
+
+class TestCanBeTypedWords(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_canBeTypedWords(self):
+        self.assertEqual(self.solution.canBeTypedWords("hello world", "ad"), 1)
+        self.assertEqual(self.solution.canBeTypedWords("leet code", "lt"), 1)
+        self.assertEqual(self.solution.canBeTypedWords("leet code", "e"), 0)
+        self.assertEqual(self.solution.canBeTypedWords("a b c d e f g", "abcdefg"), 0)
+        self.assertEqual(self.solution.canBeTypedWords("a b c d e f g", ""), 7)
+        self.assertEqual(self.solution.canBeTypedWords("the quick brown fox jumps over the lazy dog", "aeiou"), 0)
+
+if __name__ == "__main__":
+    unittest.main()
