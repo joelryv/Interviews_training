@@ -39,3 +39,29 @@ class TaskManager(object):
 # obj.edit(taskId,newPriority)
 # obj.rmv(taskId)
 # param_4 = obj.execTop()
+
+# Unit tests
+import unittest
+
+class TestTaskManager(unittest.TestCase):
+
+    def test_case_1(self):
+        tasks = [[1, 101, 5], [2, 102, 3], [3, 103, 4]]
+        manager = TaskManager(tasks)
+        self.assertEqual(manager.execTop(), 1)  # Task 101 with priority 5
+        manager.add(4, 104, 6)
+        self.assertEqual(manager.execTop(), 4)  # Task 104 with priority 6
+        manager.edit(102, 7)
+        self.assertEqual(manager.execTop(), 2)  # Task 102 with updated priority 7
+        manager.rmv(103)
+        self.assertEqual(manager.execTop(), -1) # No tasks left
+
+    def test_case_2(self):
+        tasks = [[1, 201, 1], [2, 202, 2]]
+        manager = TaskManager(tasks)
+        manager.rmv(201)
+        self.assertEqual(manager.execTop(), 2)  # Task 202 with priority 2
+        self.assertEqual(manager.execTop(), -1) # No tasks left
+
+if __name__ == "__main__":
+    unittest.main()
