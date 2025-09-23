@@ -19,7 +19,7 @@ class Solution:
                 return 1
         return 0
     
-# Unittest
+# Unit tests
 import unittest
 
 class TestSolution(unittest.TestCase):
