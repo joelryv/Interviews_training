@@ -18,3 +18,19 @@ class Solution:
             if n1 > n2:
                 return 1
         return 0
+    
+# Unittest
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_compareVersion(self):
+        self.assertEqual(self.solution.compareVersion("1.01", "1.001"), 0)
+        self.assertEqual(self.solution.compareVersion("1.0", "1.0.0"), 0)
+        self.assertEqual(self.solution.compareVersion("0.1", "1.1"), -1)
+        self.assertEqual(self.solution.compareVersion("1.0.1", "1"), 1)
+
+if __name__ == "__main__":
+    unittest.main()
