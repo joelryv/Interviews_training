@@ -5,6 +5,8 @@ from typing import List
 
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
+        if len(nums) == 0:
+            return 0
         freq = {}
         for n in nums:
             freq[n] = freq.get(n, 0) + 1
@@ -15,3 +17,20 @@ class Solution:
                 total += value
 
         return total
+    
+# Unit tests
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_maxFrequencyElements(self):
+        self.assertEqual(self.solution.maxFrequencyElements([1,2,3,1,2,3,3]), 3)
+        self.assertEqual(self.solution.maxFrequencyElements([1,1,1,2,2,3]), 3)
+        self.assertEqual(self.solution.maxFrequencyElements([1,2,3,4]), 4)
+        self.assertEqual(self.solution.maxFrequencyElements([5,5,5,5,5]), 5)
+        self.assertEqual(self.solution.maxFrequencyElements([]), 0)
+
+if __name__ == "__main__":
+    unittest.main()
