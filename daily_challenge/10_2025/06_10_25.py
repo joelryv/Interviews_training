@@ -24,3 +24,34 @@ class Solution:
                 mp[rain] = i
         return ans
     
+# Unit tests
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def test_1(self):
+        rains = [1,2,3,4]
+        expected = [-1,-1,-1,-1]
+        self.assertEqual(Solution().avoidFlood(rains), expected)
+
+    def test_2(self):
+        rains = [1,2,0,0,2,1]
+        expected = [-1,-1,2,1,-1,-1]
+        self.assertEqual(Solution().avoidFlood(rains), expected)
+
+    def test_3(self):
+        rains = [1,2,0,1,2]
+        expected = []
+        self.assertEqual(Solution().avoidFlood(rains), expected)
+
+    def test_4(self):
+        rains = [69,0,0,0,69]
+        expected = [-1,69,1,1,-1]
+        self.assertEqual(Solution().avoidFlood(rains), expected)
+
+    def test_5(self):
+        rains = [10,20,20]
+        expected = []
+        self.assertEqual(Solution().avoidFlood(rains), expected)
+
+if __name__ == "__main__":
+    unittest.main()
