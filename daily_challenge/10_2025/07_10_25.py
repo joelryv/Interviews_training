@@ -21,3 +21,17 @@ class Solution:
                     start = mid + 1
             out[i] = len(potions) - index
         return out
+    
+# Unit test
+import unittest
+
+class Test(unittest.TestCase):
+    def test(self):
+        s = Solution()
+        self.assertEqual(s.successfulPairs([5,1,3],[1,2,3,4,5],7),[4,0,3])
+        self.assertEqual(s.successfulPairs([3,1,2],[8,5,8],16),[2,0,2])
+        self.assertEqual(s.successfulPairs([15,8,9,3,5,7,2,4,10,6,11,1,12,14,13],[1,2,3,4,5,6,7,8,9,10],30),[9, 7, 7, 1, 5, 6, 0, 3, 8, 6, 8, 0, 8, 8, 8])
+        self.assertEqual(s.successfulPairs([1,2,3,4,5],[1,2,3,4,5],1),[5,5,5,5,5])
+
+if __name__ == "__main__":
+    unittest.main()
