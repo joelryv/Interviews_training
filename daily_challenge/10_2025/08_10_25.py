@@ -13,3 +13,18 @@ class Solution:
                 done[k] = done[k + 1] - mana[i] * skill[k]
 
         return done[-1]
+    
+# Unit test
+import unittest
+
+class Test(unittest.TestCase):
+    def test(self):
+        s = Solution()
+        self.assertEqual(s.minTime([1,2,3], [10,100]), 610)
+        self.assertEqual(s.minTime([5,1,4], [10,20,30]), 450)
+        self.assertEqual(s.minTime([1,2,3,4,5], [5,4,3,2,1]), 125)
+        self.assertEqual(s.minTime([1], [1]), 1)
+        self.assertEqual(s.minTime([3,2,1], [1,2,3]), 27)
+
+if __name__ == "__main__":
+    unittest.main()
