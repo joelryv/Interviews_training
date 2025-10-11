@@ -25,3 +25,19 @@ class Solution:
                 dp[i] = max(dp[i-1], dp[i-3] + strength[spells[i]])
         
         return dp[-1]
+    
+# Unit test
+import unittest
+class Test(unittest.TestCase):
+    def test(self):
+        s = Solution()
+        self.assertEqual(s.maximumTotalDamage([2,2,3,3,3,4]), 9)
+        self.assertEqual(s.maximumTotalDamage([1,1,1,2]), 3)
+        self.assertEqual(s.maximumTotalDamage([3,4,2]), 4)
+        self.assertEqual(s.maximumTotalDamage([8,10,4,9,1,3,5,9]), 24)
+        self.assertEqual(s.maximumTotalDamage([1,2,3,4,5,6]), 9)
+        self.assertEqual(s.maximumTotalDamage([100]), 100)
+        self.assertEqual(s.maximumTotalDamage([1,1,1,1,1,1]), 6)
+
+if __name__ == "__main__":
+    unittest.main()
