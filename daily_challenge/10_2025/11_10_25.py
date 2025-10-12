@@ -27,3 +27,16 @@ class Solution:
             return ans
         
         return dfs(m, k, 0, 0)
+    
+# Unit test
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def test_magicalSum(self):
+        sol = Solution()
+        self.assertEqual(sol.magicalSum(2,2,[5,4,3,2,1]),170)
+        self.assertEqual(sol.magicalSum(5,5,[1,10,100,10000,1000000]), 991600007)
+        self.assertEqual(sol.magicalSum(1,1,[28]),28)
+
+if __name__ == "__main__":
+    unittest.main()
