@@ -13,3 +13,18 @@ class Solution:
                 result.append(words[i])
         return result
     
+# Unit test
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def test_removeAnagrams(self):
+        sol = Solution()
+        self.assertEqual(sol.removeAnagrams(["abba","baba","bbaa","cd","cd"]), ["abba","cd"])
+        self.assertEqual(sol.removeAnagrams(["a","b","c","d","e"]), ["a","b","c","d","e"])
+        self.assertEqual(sol.removeAnagrams(["a","a","a","b"]), ["a","b"])
+        self.assertEqual(sol.removeAnagrams(["a"]), ["a"])
+        self.assertEqual(sol.removeAnagrams(["ab","ba"]), ["ab"])
+        self.assertEqual(sol.removeAnagrams(["abc","bca","cab","xyz","zyx"]), ["abc","xyz"])
+
+if __name__ == "__main__":
+    unittest.main()
