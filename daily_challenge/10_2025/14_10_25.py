@@ -16,3 +16,19 @@ class Solution:
                 current = 1
         longest = max(longest, min(current, prev), current//2)
         return longest
+    
+# Unit tests
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def test_maxIncreasingSubarrays(self):
+        sol = Solution()
+        self.assertEqual(sol.maxIncreasingSubarrays([9, 6, 5, 8, 7, 10]), 2)
+        self.assertEqual(sol.maxIncreasingSubarrays([2, 2, 2, 2, 2]), 1)
+        self.assertEqual(sol.maxIncreasingSubarrays([1, 2, 3, 4, 5]), 2)
+        self.assertEqual(sol.maxIncreasingSubarrays([5, 4, 3, 2, 1]), 1)
+        self.assertEqual(sol.maxIncreasingSubarrays([1, 3, 5, 4, 6, 8]), 3)
+        self.assertEqual(sol.maxIncreasingSubarrays([10, 20, 30, 25, 35, 45]), 3)
+
+if __name__ == "__main__":
+    unittest.main()
