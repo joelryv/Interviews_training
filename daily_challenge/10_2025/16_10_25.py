@@ -56,3 +56,42 @@ class Solution:
             )
         return max_partitions_after_operations
 
+# Unit tests
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_example1(self):
+        s = "abacaba"
+        k = 2
+        expected = 3
+        self.assertEqual(self.solution.maxPartitionsAfterOperations(s, k), expected)
+
+    def test_example2(self):
+        s = "ssssss"
+        k = 1
+        expected = 3
+        self.assertEqual(self.solution.maxPartitionsAfterOperations(s, k), expected)
+
+    def test_additional1(self):
+        s = "abcde"
+        k = 3
+        expected = 2
+        self.assertEqual(self.solution.maxPartitionsAfterOperations(s, k), expected)
+
+    def test_additional2(self):
+        s = "aabbcc"
+        k = 2
+        expected = 2
+        self.assertEqual(self.solution.maxPartitionsAfterOperations(s, k), expected)
+
+    def test_additional3(self):
+        s = "xyzxyzxyz"
+        k = 4
+        expected = 1
+        self.assertEqual(self.solution.maxPartitionsAfterOperations(s, k), expected)
+
+if __name__=='__main__':
+    unittest.main()
