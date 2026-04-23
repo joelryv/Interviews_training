@@ -9,7 +9,7 @@ https://leetcode.com/problems/sum-of-distances/description/?envType=daily-questi
 from typing import List
 
 class Solution:
-    def distance(sel, nums: List[int]) -> List[int]:
+    def distance(self, nums: List[int]) -> List[int]:
         arr = [0] * len(nums)
         look_up = dict()
         for i in range(len(nums)):
@@ -24,3 +24,17 @@ class Solution:
                 arr[idx] = total - prefix_total * 2 + idx * (2 * i - sz)
                 prefix_total += idx
         return arr
+    
+# Test cases
+import unittest
+
+class TestSolution(unittest.TestCase):
+    def test_distance(self):
+        self.assertEqual(Solution().distance([1, 3, 1, 1, 2]), [5, 0, 3, 4, 0])
+        self.assertEqual(Solution().distance([0, 5, 3]), [0, 0, 0])
+        self.assertEqual(Solution().distance([1, 2, 3]), [0, 0, 0])
+        self.assertEqual(Solution().distance([1, 1, 1]), [3, 2, 3])
+        self.assertEqual(Solution().distance([1]), [0])
+
+if __name__ == "__main__":
+    unittest.main()
